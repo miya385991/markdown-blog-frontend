@@ -1,0 +1,23 @@
+.root{
+  @apply bg-gray-900 text-gray-100 shadow w-full
+
+}
+
+.content {
+  @apply container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center
+}
+
+.titleLink{
+  @apply flex w-1/5 font-medium items-center justify-start mb-0;
+}
+
+.span{
+  @apply ml-3 text-xl 
+}
+
+.navbar{
+  @apply flex flex-wrap md:w-4/5 items-center justify-end text-base md:ml-auto
+}
+.about{
+  @apply mx-5 cursor-pointer uppercase hover:text-indigo-300
+}

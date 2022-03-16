@@ -1,0 +1,7 @@
+.root{
+  @apply w-1/2 mx-5
+}
+
+.text{
+  @apply w-full
+}

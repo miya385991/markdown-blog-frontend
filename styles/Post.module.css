@@ -1,0 +1,38 @@
+.root{
+  @apply w-full px-10 py-6 bg-white rounded-lg shadow-md mt-6;
+}
+
+.image{
+  @apply mb-4 rounded;
+}
+.category{
+  @apply flex justify-between items-center;
+}
+
+.categorySpan{
+  @apply font-light text-gray-600;
+}
+
+.title{
+  @apply font-bold mt-2;
+}
+
+.titleLink{
+  @apply text-3xl text-gray-700 font-bold hover:underline;
+}
+
+.subText{
+  @apply mt-2 text-gray-600;
+}
+
+.moreContent{
+  @apply flex justify-between items-center mt-6;
+}
+
+.moreContentLink{
+  @apply text-gray-900 hover:text-blue-600;
+}
+
+.author{
+  @apply text-gray-700 py-5 px-1;
+}
