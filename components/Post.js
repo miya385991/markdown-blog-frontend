@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import CategoryLabel from "./CategoryLabel";
 import s from "../styles/Post.module.css";
@@ -6,15 +5,6 @@ import s from "../styles/Post.module.css";
 export default function Post({ post, compact }) {
   return (
     <div className={s.root}>
-      {!compact && (
-        <Image
-          src={post.frontmatter.cover_image}
-          alt=""
-          height={420}
-          width={600}
-          className={s.image}
-        />
-      )}
 
       <div className={s.category}>
         <span className={s.categorySpan}>
@@ -34,7 +24,7 @@ export default function Post({ post, compact }) {
       {!compact && (
         <div className={s.moreContent}>
           <Link href={`/blog/${post.slug}`}>
-            <a className={s.moreContentLink}>Read More...</a>
+            <a className={s.moreContentLink}>詳細へ...</a>
           </Link>
           <div className="flex">
 

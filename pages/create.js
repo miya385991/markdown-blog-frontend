@@ -1,9 +1,6 @@
 import { useState } from "react";
 import PostPreview from "@/components/PostPreview";
 import s from "../styles/Create.module.css";
-import InputLabel from "@/components/InputLabel";
-import { createFile } from "lib/files";
-import { uploadImage } from "lib/uploadImage";
 import axios from "axios";
 
 
@@ -12,16 +9,14 @@ const labels = [
   { tag: "title", label: "タイトル" },
   { tag: "date", label: "日付" },
   { tag: "excerpt", label: "概要" },
-  { tag: "cover_image", label: "カバー画像" },
   { tag: "category", label: "カテゴリー" },
   { tag: "author", label: "著者" },
 ];
 export default function PostForm() {
   const [markdown, setMarkdown] = useState();
-  const [frontmatter, setFrontmatter] = useState({title:'',date:'',excerpt:'',cover_image:'',category:'',author:''});
+  const [frontmatter, setFrontmatter] = useState({title:'',date:'',excerpt:'',category:'',author:''});
 
   const onSubmit =  async(e) => {
-    // e.preventDefault();
     const res = await axios.post("http://localhost:3000/api/createMarkdown", {
       frontmatter,markdown,
     });
@@ -31,8 +26,6 @@ export default function PostForm() {
   const handleInputChange = (e) => {
     const { id, value } = e.target;
     setFrontmatter({ ...frontmatter, [id]:value });
-    console.log(frontmatter.cover_image);
-    uploadImage();
   }
 
 
@@ -105,18 +98,6 @@ export default function PostForm() {
                   className={s.input}
                   id="author"
                   value={frontmatter.author}
-                  onChange={handleInputChange}
-                />
-              </div>
-              <div className={s.inputContainer}>
-                <label htmlFor="cover_image" className={s.label}>
-                  カバー画像
-                </label>
-                <input
-                  type="file"
-                  className={s.input}
-                  id="cover_image"
-                  value={frontmatter.cover_image}
                   onChange={handleInputChange}
                 />
               </div>

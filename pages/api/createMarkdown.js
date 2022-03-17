@@ -15,8 +15,7 @@ export default function handler(req, res) {
   titleText += "---\n"
   titleText += markdown;
 
-  // createFile(titleCategory.title,titleText);
-  // console.log(markdown);
+  createFile(titleCategory.title,titleText);
 
   res.end();
 }

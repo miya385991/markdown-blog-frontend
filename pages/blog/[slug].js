@@ -1,15 +1,14 @@
 import fs from "fs";
 import path from "path";
 import Link from "next/link";
-import Layout from "@/components/Layout";
 import CategoryLabel from "@/components/CategoryLabel";
 import matter from "gray-matter";
 
-import Image from "next/image";
+
 import { marked } from "marked";
 
 export default function CategoryPage({
-  frontmatter: { title, category, date, cover_image, author,  },
+  frontmatter: { title, category, date, author,  },
   content,
   slug,
 }) {
@@ -23,13 +22,7 @@ console.log(marked.parse("# Marked in the browser\n\nRendered by **marked**."));
           <h1 className="text-5xl mb-7">{title}</h1>
           <CategoryLabel>{category}</CategoryLabel>
         </div>
-        <Image
-          width={600}
-          height={420}
-          src={cover_image}
-          alt=""
-          className="w-full rounded"
-        />
+
 
         <div className="flex justify-between items-center bg-gray-100 p-2 my-8">
           <div className="flex justify-between items-center bg-gray-100 p-2 my-8">

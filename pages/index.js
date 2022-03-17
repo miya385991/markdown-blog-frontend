@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { getPosts } from "lib/posts";
 
 export default function Home({ posts }) {
-  // console.log(posts);
+
   return (
     <div>
       <h1 className="text-5xl border-b-4 p-5 font-bold">記事一覧</h1>
@@ -20,7 +20,7 @@ export default function Home({ posts }) {
 
 
 export async function getStaticProps() {
-  // const posts = getPosts().slice(0, 6);
+
   const posts = getPosts();
   return {
     props: {
