@@ -1,7 +1,7 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import gfm from "remark-gfm";
-import s from "../styles/PostPreviw.module.css";
+import s from "@/styles/PostPreviw.module.css";
 
 const PostPreview = (props) => {
   return (

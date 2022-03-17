@@ -1,0 +1,7 @@
+.title{
+ @apply text-5xl border-b-4 p-5 font-bold;
+}
+
+.postContent{
+ @apply grid md:grid-cols-3 gap-5;
+}

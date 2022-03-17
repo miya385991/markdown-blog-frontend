@@ -1,6 +1,6 @@
 import { useState } from "react";
 import PostPreview from "@/components/PostPreview";
-import s from "../styles/Create.module.css";
+import s from "@/styles/Create.module.css";
 import axios from "axios";
 
 

@@ -1,5 +1,5 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import {createFile} from "lib/files";
+import {createFile} from "@/lib/files";
 
 export default function handler(req, res) {
   // console.log(req.body);

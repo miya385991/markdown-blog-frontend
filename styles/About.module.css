@@ -1,0 +1,22 @@
+.title{
+  @apply text-5xl border-b-4 pb-5 font-bold;
+}
+
+.content{
+@apply bg-white shadow-md rounded-lg px-10 py-6 mt-6;
+}
+
+.sub{
+  @apply text-2xl m-4;
+}
+
+.text{
+  @apply text-xl m-4;
+}
+.date{
+  @apply mr-4;
+}
+
+.contentMark{
+  @apply mt-2
+}
