@@ -31,7 +31,7 @@ export default function CategoryPage({
         </div>
         <div className={s.contentMark}>
           <div
-            dangerouslySetInnerHTML={{ __html: marked.parse(content) }}
+            dangerouslySetInnerHTML={{ __html: marked(content) }}
           ></div>
         </div>
       </div>

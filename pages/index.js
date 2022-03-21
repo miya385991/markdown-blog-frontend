@@ -5,7 +5,6 @@ import { getPosts } from "lib/posts";
 import s from '@/styles/Index.module.css'
 
 export default function Home({ posts }) {
-
   return (
     <div>
       <h1 className={s.title}>記事一覧</h1>
@@ -18,7 +17,6 @@ export default function Home({ posts }) {
     </div>
   );
 }
-
 
 export async function getStaticProps() {
 

@@ -1,3 +1,5 @@
+
+
 .root {
   @apply w-full
 }
@@ -31,12 +33,13 @@
 .content{
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .inputContainer{
-  @apply mt-1  rounded-md shadow-sm my-2;
+  @apply mt-1  rounded-md shadow-sm my-2 justify-between; 
 }
 
 .input{
-  @apply focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-600 my-2;
+  @apply focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-600 my-2 bg-gray-200;
 }

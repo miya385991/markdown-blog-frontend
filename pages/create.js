@@ -29,6 +29,9 @@ export default function PostForm() {
   }
 
 
+
+
+
   return (
     <div className={s.root}>
       <h2 className={s.title}>投稿を作成</h2>
