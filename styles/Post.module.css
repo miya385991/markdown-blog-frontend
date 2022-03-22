@@ -36,3 +36,7 @@
 .author{
   @apply text-gray-700 py-5 px-1;
 }
+
+.image{
+  @apply mb-4 rounded;
+}

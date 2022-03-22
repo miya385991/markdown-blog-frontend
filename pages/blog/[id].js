@@ -1,18 +1,19 @@
-import fs from "fs";
-import path from "path";
 import Link from "next/link";
 import CategoryLabel from "@/components/CategoryLabel";
-import matter from "gray-matter";
 import s from "@/styles/Slug.module.css";
-
+import axios from "axios";
+import Image from "next/image";
 
 import { marked } from "marked";
 
 export default function CategoryPage({
-  frontmatter: { title, category, date, author,  },
-  content,
-  slug,
+  post,
 }) {
+
+  const { title, category, author, img, created, text } = post;
+  const date = new Date(created);
+  const datetime = `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`;
+
 
   return (
     <div className={s.root}>
@@ -27,12 +28,10 @@ export default function CategoryPage({
           <div className={s.content}>
             <h4>{author}</h4>
           </div>
-          <div className={s.date}>{date}</div>
+          <div className={s.date}>{datetime}</div>
         </div>
         <div className={s.contentMark}>
-          <div
-            dangerouslySetInnerHTML={{ __html: marked(content) }}
-          ></div>
+          <div dangerouslySetInnerHTML={{ __html: marked(text) }}></div>
         </div>
       </div>
     </div>
@@ -40,18 +39,12 @@ export default function CategoryPage({
 }
 
 
-export async function getServerSideProps({ params: { slug } }) {
-  const markdownWithMeta = fs.readFileSync(
-    path.join("posts", slug + ".md"),
-    "utf-8"
-  );
-
-  const { data: frontmatter, content } = matter(markdownWithMeta);
+export async function getServerSideProps({ params: { id } }) {
+    const res = await axios.get(`http://127.0.0.1:8000/api/markdown/${id}`);
+  const post = res.data;
   return {
     props: {
-      frontmatter,
-      content,
-      slug,
+      post,
     },
   };
 }
