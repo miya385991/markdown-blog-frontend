@@ -35,8 +35,6 @@ export default function PostForm() {
   const handleInputChange = (e) => {
     const { id, value } = e.target;
       setFrontmatter({ ...frontmatter, [id]: value });
-    
-    
   }
 
 
