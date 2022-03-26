@@ -10,6 +10,7 @@
     "build:css": "postcss styles/globals.css -o styles/globals_browser.css"
   },
   "dependencies": {
+    "@heroicons/react": "^1.0.6",
     "autoprefixer": "^10.4.2",
     "axios": "^0.26.1",
     "express": "^4.17.3",

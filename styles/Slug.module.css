@@ -50,3 +50,7 @@
 
 
 }
+
+.bar{
+  @apply flex justify-between items-center
+}

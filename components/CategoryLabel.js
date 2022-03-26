@@ -11,6 +11,7 @@ export default function CategoryLabel({ children }) {
       Ruby: "red",
       Markdown: "lightsteelblue",
       Linux: "dimgray",
+
     };
 
     return (

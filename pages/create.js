@@ -16,22 +16,21 @@ export default function PostForm() {
   const [frontmatter, setFrontmatter] = useState({ title: '', overview: '', category: '', author: '', img: '', text: null });
   const router = useRouter();
 
-  const onSubmit = async (e) => {
+  const onSubmitCreated = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/markdown/", {
-        method: "POST",
-        body: JSON.stringify(frontmatter),
+      await axios.post("http://127.0.0.1:8000/api/markdown/",frontmatter, {
         headers: {
           "Content-Type": "application/json",
         },
       });
       router.push("/");
-
     } catch (error) {
       console.log(error);
     }
   }
+
+
 
   const handleInputChange = (e) => {
     const { id, value } = e.target;
@@ -46,7 +45,7 @@ export default function PostForm() {
       <h2 className={s.title}>投稿を作成</h2>
       <div>
         <div className={s.formContainer}>
-          <form className={s.formText} >
+          <form className={s.formText}>
             {labels.map((label, index) => (
               <div key={index} className={s.labelContent}>
                 {label.tag != "text" ? (
@@ -60,7 +59,7 @@ export default function PostForm() {
                       id={label.tag}
                       value={frontmatter[label.tag]}
                       onChange={handleInputChange}
-                      {...label.tag=='img' ? `accept="image/*"` : ''}
+                      {...(label.tag == "img" ? `accept="image/*"` : "")}
                     />
                   </div>
                 ) : (
@@ -73,10 +72,16 @@ export default function PostForm() {
                       id="md"
                       placeholder="Markdownで記述"
                       value={frontmatter.text}
-                        onChange={ (e) => setFrontmatter({ ...frontmatter, text: e.target.value })}
+                      onChange={(e) =>
+                        setFrontmatter({ ...frontmatter, text: e.target.value })
+                      }
                       className={s.textArea}
                     ></textarea>
-                    <button type="submit" className={s.btn} onClick={onSubmit}>
+                    <button
+                      type="submit"
+                      className={s.btn}
+                      onClick={onSubmitCreated}
+                    >
                       作成
                     </button>
                   </div>
