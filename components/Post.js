@@ -26,8 +26,8 @@ export default function Post({ post, compact }) {
 
       {!compact && (
         <div className={s.moreContent}>
-          <Link href={`/blog/${post.id}`}>
-            <a className={s.moreContentLink}>詳細へ...</a>
+          <Link href={`/home/${post.id}`}>
+            <a className={s.moreContentLink}>編集へ...</a>
           </Link>
           <div className="flex">
             <h3 className={s.author}>{post.author}</h3>
