@@ -1,7 +1,6 @@
 import Post from '@/components/Post';
 import Head from 'next/head'
 import Image from 'next/image'
-import { getPosts } from "lib/posts";
 import s from '@/styles/Index.module.css'
 import  axios  from 'axios';
 
