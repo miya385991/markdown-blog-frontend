@@ -18,7 +18,7 @@ export default function CategoryPage({ post, id }) {
   
   const onSubmitDeleted = async () => { 
     try {
-      await axios.delete(`http://127.0.0.1:8000/api/markdown/${id}/`);
+      await axios.delete(`${process.env.NEXT_PUBLIC_API_MARKDOWN}${id}/`);
       router.push("/");
     } catch (error) {
       console.log(error.message);
@@ -67,7 +67,7 @@ export default function CategoryPage({ post, id }) {
 }
 
 export async function getServerSideProps({ params: { id } }) {
-  const res = await axios.get(`http://127.0.0.1:8000/api/markdown/${id}`);
+  const res = await axios.get(`${process.env.NEXT_PUBLIC_API_MARKDOWN}${id}`);
   const post = res.data;
   return {
     props: {

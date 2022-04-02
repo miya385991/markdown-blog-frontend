@@ -21,7 +21,7 @@ export default function Home({ posts }) {
 }
 
 export async function getStaticProps() {
-  const res = await axios.get("http://127.0.0.1:8000/api/markdown");
+  const res = await axios.get(process.env.NEXT_PUBLIC_API_MARKDOWN);
   const posts = res.data;
   return {
     props: {

@@ -25,11 +25,15 @@ export default function PostForm({ post,edit }) {
   const onSubmitPut = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://127.0.0.1:8000/api/markdown/${edit}/`, frontmatter, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      await axios.put(
+        `${process.env.NEXT_PUBLIC_API_MARKDOWN}${edit}/`,
+        frontmatter,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       router.push("/");
     } catch (error) {
       console.log(error);
@@ -104,7 +108,7 @@ export default function PostForm({ post,edit }) {
 
 
 export async function getServerSideProps({ params: { edit } }) {
-  const res = await axios.get(`http://127.0.0.1:8000/api/markdown/${edit}`);
+  const res = await axios.get(`${process.env.NEXT_PUBLIC_API_MARKDOWN}${edit}`);
   const post = res.data;
   console.log(edit);
   return {

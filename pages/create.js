@@ -19,7 +19,7 @@ export default function PostForm() {
   const onSubmitCreated = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://127.0.0.1:8000/api/markdown/",frontmatter, {
+      await axios.post(process.env.NEXT_PUBLIC_API_MARKDOWN,frontmatter, {
         headers: {
           "Content-Type": "application/json",
         },
